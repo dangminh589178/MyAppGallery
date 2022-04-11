@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MyApp</string>
+
+    <string name="activity_animation_duration" translatable="false">250</string>
+
+    <!--    menu navigation-->
+    <string name="navigation_home">Home </string>
+    <string name="navigation_one">One </string>
+    <string name="navigation_two">Two </string>
+    <string name="navigation_three">Three </string>
+
+    <!--    text in bottom sheet-->
+    <string name="tv_lock_screen">Set as Lock Screen </string>
+    <string name="tv_home_screen">Set as Home screen </string>
+    <string name="tv_both_screen">Set both </string>
+    <string name="tv_cancel">Cancel </string>
+    <string name="apply">Apply </string>
+</resources>

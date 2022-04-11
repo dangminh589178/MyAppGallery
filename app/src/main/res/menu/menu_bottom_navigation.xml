@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/btn1"
+        android:title="@string/navigation_home" />
+    <item
+        android:id="@+id/btnOne"
+        android:title="@string/navigation_one" />
+    <item
+        android:id="@+id/btsnTwo"
+        android:title="@string/navigation_two" />
+    <item
+        android:id="@+id/btsnThree"
+
+        android:title="@string/navigation_three" />
+
+</menu>
