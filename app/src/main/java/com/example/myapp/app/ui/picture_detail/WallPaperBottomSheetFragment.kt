@@ -121,7 +121,7 @@ class WallPaperBottomSheetFragment : BaseBottomSheetDialog() {
                     ) {
                         val wallpaperManager = WallpaperManager.getInstance(context)
                         try {
-                            wallpaperManager.setBitmap(resource, null, true,WallpaperManager.FLAG_LOCK )
+                            wallpaperManager.setBitmap(resource, null, true, WallpaperManager.FLAG_SYSTEM )
                             Toast.makeText(context, "Set succeed wallpaper", Toast.LENGTH_SHORT)
                                 .show()
 
