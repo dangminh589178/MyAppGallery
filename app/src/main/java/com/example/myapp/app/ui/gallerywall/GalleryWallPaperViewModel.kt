@@ -2,7 +2,6 @@ package com.example.myapp.app.ui.gallerywall
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
-import com.example.myapp.app.data.local.model.ArrayImageResponse
 import com.example.myapp.app.data.local.model.TypeArray
 import com.example.myapp.app.data.repository.ArrayImageRepository
 import com.example.myapp.app.extensions.bindLoading

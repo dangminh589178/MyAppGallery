@@ -159,14 +159,9 @@ class GalleryWallPaperFragment : BaseFragment() {
     private fun initData() {
         adapter.apply {
             itemClick = {
-                    (activity as? BaseActivity)?.addFragment(GalleryWallPaperDetailFragment.newInstance(it), false, null)
+                    (activity as? BaseActivity)?.addFragment(GalleryWallPaperDetailFragment.newInstance(it), true, null)
 
             }
-//            setonClickListener {
-//                Log.d("clicktsadoType", it.toString())
-//                addInContainer(GalleryWallPaperDetail(), true, null)
-//
-//            }
         }
         viewModel.getDataResponse()
     }
