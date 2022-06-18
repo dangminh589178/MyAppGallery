@@ -13,4 +13,8 @@ class ArrayImageRepository @Inject constructor(private val arrayImage: ArrayImag
     internal  fun getArrayImageResponse() = safeFlow {
         arrayImage.getArrayImage()
     }
+
+    internal fun getArrayImageTypeResponse(page: Int, perPage: Int) = safeFlow {
+        arrayImage.getArrayImageType(page, perPage)
+    }
 }

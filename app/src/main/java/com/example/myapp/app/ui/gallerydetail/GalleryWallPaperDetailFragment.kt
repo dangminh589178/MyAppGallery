@@ -1,5 +1,6 @@
 package com.example.myapp.app.ui.gallerydetail
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -61,6 +62,66 @@ class GalleryWallPaperDetailFragment : BaseFragment() {
         initData()
         initEvent()
         return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d("GalleryWallPaperDetailFragmentruntostop", "onViewCreated: ")
+
+        initView()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.d("GalleryWallPaperDetailFragmentruntostop", "onAttach: ")
+
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.d("GalleryWallPaperDetailFragmentruntostop", "onDetach: ")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("GalleryWallPaperDetailFragmentruntostop", "onResume: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        Log.d("GalleryWallPaperDetailFragmentruntostop", "onPause: ")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("GalleryWallPaperDetailFragmentruntostop", "onStop: ")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.d("GalleryWallPaperDetailFragmentruntostop", "onSaveInstanceState: ")
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        Log.d("GalleryWallPaperDetailFragmentruntostop", "onViewStateRestored: ")
+    }
+    override fun onStart() {
+        super.onStart()
+
+        Log.d("GalleryWallPaperDetailFragmentruntostop", "onStart: ")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("GalleryWallPaperDetailFragmentruntostop", "onDestroy: ")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("GalleryWallPaperDetailFragmentruntostop", "onDestroyView: ")
+        binding = null
     }
 
     private fun initEvent() {

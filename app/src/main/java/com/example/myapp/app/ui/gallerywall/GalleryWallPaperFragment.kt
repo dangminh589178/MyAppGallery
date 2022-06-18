@@ -46,6 +46,7 @@ class GalleryWallPaperFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.d("jadasdjsakdlsjadl;", "GalleryWallPaperFragmentádmasd: ")
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_gallery_wallpaper,

@@ -7,6 +7,7 @@ import com.example.myapp.app.extensions.addFragment
 import com.example.myapp.app.extensions.replaceFragment
 import com.example.myapp.app.ui.gallerywall.GalleryWallPaperFragment
 import com.example.myapp.app.ui.base.BaseActivity
+import com.example.myapp.app.ui.paging_source.WallPaperPagingFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -20,7 +21,7 @@ class MainActivity : BaseActivity() {
         lifecycleScope.launchWhenCreated {
             Log.d("asdsadlaunchWhenCreated", "sadasd")
                 replaceFragment(
-                    GalleryWallPaperFragment(), isAddBackStack = true, isEnableAnim = true
+                    WallPaperPagingFragment(), isAddBackStack = true, isEnableAnim = true
                 )
         }
     }

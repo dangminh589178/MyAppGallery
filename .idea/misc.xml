@@ -14,8 +14,10 @@
         <entry key="..\:/myapp/app/src/main/res/layout/fragment_navigation_container.xml" value="0.152" />
         <entry key="..\:/myapp/app/src/main/res/layout/fragment_no_navigation.xml" value="0.144" />
         <entry key="..\:/myapp/app/src/main/res/layout/fragment_noavigation.xml" value="0.19739583333333333" />
+        <entry key="..\:/myapp/app/src/main/res/layout/fragment_paper_paging.xml" value="0.152" />
         <entry key="..\:/myapp/app/src/main/res/layout/fragment_picture_detail.xml" value="0.176" />
         <entry key="..\:/myapp/app/src/main/res/layout/fragment_wall_paper_bottom_sheet.xml" value="0.176" />
+        <entry key="..\:/myapp/app/src/main/res/layout/item_gallary_paging.xml" value="0.2" />
         <entry key="..\:/myapp/app/src/main/res/layout/item_gallery.xml" value="0.264" />
         <entry key="..\:/myapp/app/src/main/res/layout/item_gallery_wallpaper_detail.xml" value="0.12" />
         <entry key="..\:/myapp/app/src/main/res/layout/layout_top_up_message.xml" value="0.176" />
