@@ -8,7 +8,51 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="concrete">#F2F2F2</color>
-    <color name="red">#FF0000</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="colorBackground">#0E0B15</color>
+    <color name="on_surface_high_emphasis">#CC000000</color>
+
+    <color name="gray_300">#E0DFE2</color>
+    <color name="gray_600">#767378</color>
+    <color name="gray_800">#484649</color>
+    <color name="gray_900">#212022</color>
+    <color name="system_blue_light">#007AFF</color>
+    <color name="yellow">#FFD335</color>
+    <color name="light_yellow">#FFFCE7</color>
+    <color name="light_gray">#F6F9F9</color>
+    <color name="black_20">#33000000</color>
+    <color name="black_30">#4D000000</color>
+    <color name="black_60">#99000000</color>
+    <color name="black_80">#CC000000</color>
+    <color name="red">#E30000</color>
+    <color name="shadow_mountain_fitness">#CC5F6772</color>
+
+    <color name="black_opacity_10">#1A000000</color>
+    <color name="color_button_controller">#CB5F6772</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_5">#0D000000</color>
+    <color name="black_10">#1A000000</color>
+    <color name="line_view">#5C3C3C43</color>
+    <color name="color_button_negative">#007AFF</color>
+    <color name="background_controller_smart_stream">#66000000</color>
+    <color name="color_primary_smart_stream_fitness">#FFFFFF</color>
+
+    <color name="blue">#047BFF</color>
+    <color name="blue_interactive">#176BEB</color>
+    <color name="cornflower_blue">#D6D6D6</color>
+    <color name="surface_error_light_red">#FFE6DE</color>
+    <color name="surface_light_gray">#E6EDF7</color>
+    <color name="white_black_5">#F2F2F2</color>
+    <color name="white_black_10">#E5E5E5</color>
+
+    <color name="sunshineYellow">#FFD335</color>
+    <color name="shadow_default">#0D000000</color>
+    <color name="selected_indicator">#FCBB2F</color>
+    <color name="unselected_indicator">#33000000</color>
+    <color name="red_e83">#E83600</color>
+    <color name="primary_light_yellow">#FFF7C3</color>
+    <color name="accent_yellow_fitness">#FAA328</color>
+    <color name="coquelicot">#E83600</color>
+    <color name="black_70">#B3000000</color>
+
 </resources>

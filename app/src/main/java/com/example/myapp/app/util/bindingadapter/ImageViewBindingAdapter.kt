@@ -12,10 +12,8 @@ Crete by Minh at 15/02/2022
 
 @BindingAdapter("loadImageUrl")
 fun ImageView.loadImage(url: String?) {
-    Log.d("urlStringToIage", url.toString())
     if (url.toString().isNotEmpty()){
         Glide.with(context).load("${BuildConfig.BASE_IMAGE}$url")
             .into(this)
     }
-
 }

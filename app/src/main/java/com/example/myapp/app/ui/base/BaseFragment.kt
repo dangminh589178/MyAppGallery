@@ -1,7 +1,9 @@
 package com.example.myapp.app.ui.base
 
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentController
+import com.example.myapp.app.ui.base.viewmodel.IBaseFragment
 
 /**
 Crete by Minh at 2/01/2022
@@ -31,7 +33,6 @@ abstract class BaseFragment : com.example.myapp.app.ui.base.FragmentController()
         } else {
             hideLoading()
         }
-
     }
 
     private fun hideLoading() {

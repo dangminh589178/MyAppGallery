@@ -15,4 +15,8 @@
     <string name="tv_both_screen">Set both </string>
     <string name="tv_cancel">Cancel </string>
     <string name="apply">Apply </string>
+
+    <!--    title-->
+    <string name="title_image_category">Title image category </string>
+    <string name="tv_see_mote">See more </string>
 </resources>

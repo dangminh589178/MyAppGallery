@@ -18,6 +18,7 @@ import com.example.myapp.app.extensions.addFragment
 import com.example.myapp.app.ui.base.BaseActivity
 import com.example.myapp.app.ui.base.BaseFragment
 import com.example.myapp.app.ui.gallerydetail.GalleryWallPaperDetailFragment
+import com.example.myapp.app.ui.gallerywall.adapter.GalleryWallPaperAdapter
 import com.example.myapp.databinding.FragmentGalleryWallpaperBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -128,7 +129,7 @@ class GalleryWallPaperFragment : BaseFragment() {
         lifecycleScope.launchWhenCreated {
             launch {
                 viewModel.loadingState().collect {
-                    handleShowLoading(it)
+                    handleStateLoading(it)
                 }
             }
             launch {
@@ -144,16 +145,19 @@ class GalleryWallPaperFragment : BaseFragment() {
         }
     }
 
+    private fun handleStateLoading(stateLoading: Boolean) {
+        if (!stateLoading){
+            binding?.loadingView?.visibility = View.GONE
+        }
+    }
+
     private fun initView() {
-        Log.d("asdiasdlknld", "initView: ")
-        val layoutManager = GridLayoutManager(context, 2)
+        val layoutManager = GridLayoutManager(context, 1)
         binding?.rcvGalleyWallPaper?.let {
             it.adapter = adapter
             it.layoutManager = layoutManager
-            it.addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
-        }
-        Log.d("checksizeslist", viewModel.listResponseImage.value.size.toString())
 
+        }
     }
 
     private fun initData() {
@@ -165,4 +169,6 @@ class GalleryWallPaperFragment : BaseFragment() {
         }
         viewModel.getDataResponse()
     }
+
+
 }
