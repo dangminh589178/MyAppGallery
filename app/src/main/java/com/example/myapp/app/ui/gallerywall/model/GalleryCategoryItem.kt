@@ -5,7 +5,7 @@ import com.example.myapp.app.data.local.model.RowObject
 
 sealed class GalleryCategoryItem(val type: CategoryViewType) {
 
-    class TitleItem(val title: String = "") : GalleryCategoryItem(CategoryViewType.TITLE)
+    class TitleItem(val title: String = "", val listDetailImage: ArrayList<RowObject> ) : GalleryCategoryItem(CategoryViewType.TITLE)
     class ContentItem(val data: ArrayList<RowObject>) : GalleryCategoryItem(CategoryViewType.CONTENT)
 }
 

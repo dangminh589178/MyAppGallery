@@ -26,6 +26,7 @@ class GalleryWallPaperViewModel @Inject constructor(val galleryRepo: ArrayImageR
     companion object {
         const val ELEMENT_VISIBLE = 10
         const val ELEMENT_PICTURE = 5
+        const val ELEMENT_PICTURE_DETAIL = 100
     }
 
     var listResponseImage: MutableStateFlow<MutableList<GalleryCategoryItem>> =
@@ -43,8 +44,21 @@ class GalleryWallPaperViewModel @Inject constructor(val galleryRepo: ArrayImageR
         val listItem = mutableListOf<GalleryCategoryItem>()
 
         data.take(ELEMENT_VISIBLE).forEach { typeArray ->
-            listItem.add(GalleryCategoryItem.TitleItem(title = typeArray.type))
-            listItem.add(GalleryCategoryItem.ContentItem(data = typeArray.data_loai.take(ELEMENT_PICTURE) as ArrayList<RowObject>))
+            listItem.add(
+                GalleryCategoryItem.TitleItem(
+                    title = typeArray.type, listDetailImage = typeArray.data_loai.take(
+                        ELEMENT_PICTURE_DETAIL
+                    ) as ArrayList
+                )
+            )
+
+            listItem.add(
+                GalleryCategoryItem.ContentItem(
+                    data = typeArray.data_loai.take(
+                        ELEMENT_PICTURE
+                    ) as ArrayList<RowObject>
+                )
+            )
         }
         return listItem
     }

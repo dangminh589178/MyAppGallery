@@ -5,10 +5,13 @@ import android.view.ViewGroup
 import com.example.myapp.R
 import com.example.myapp.app.data.local.model.RowObject
 import com.example.myapp.app.extensions.GlideExtension
+import com.example.myapp.app.extensions.setSafeOnClick
 import com.example.myapp.app.ui.base.BaseListAdapter
 import com.example.myapp.databinding.ViewpagerCategoryDetailBinding
 
-class CarouseImageCategoryAdapter : BaseListAdapter<RowObject>() {
+class CarouseImageCategoryAdapter(
+    val clickItemImage: (RowObject) -> Unit = {}
+) : BaseListAdapter<RowObject>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseItemViewHolder {
         return CarouselDetailImage(
             ViewpagerCategoryDetailBinding.inflate(
@@ -23,7 +26,10 @@ class CarouseImageCategoryAdapter : BaseListAdapter<RowObject>() {
 
         override fun bind(data: RowObject) {
             binding.apply {
-                    GlideExtension.withLoad(binding.root.context, data.row.url).into(imgCategory)
+                GlideExtension.withLoad(binding.root.context, data.row.url).into(imgCategory)
+            }
+            binding.root.setSafeOnClick {
+                clickItemImage.invoke(data)
             }
         }
     }

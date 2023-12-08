@@ -8,14 +8,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.myapp.R
-import com.example.myapp.app.data.local.model.TypeArray
+import com.example.myapp.app.data.local.model.RowObject
 import com.example.myapp.app.extensions.addFragment
 import com.example.myapp.app.ui.base.BaseActivity
 import com.example.myapp.app.ui.base.BaseFragment
+import com.example.myapp.app.ui.gallerydetail.adapter.GalleryWallPaperDetailAdapter
 import com.example.myapp.app.ui.picture_detail.PictureDetailFragment
 import com.example.myapp.databinding.FragmentGalleryWallpaperDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,16 +29,16 @@ Crete by Minh at 5/03/2022
 class GalleryWallPaperDetailFragment : BaseFragment() {
     private val viewModel by viewModels<GalleryWallPaperDetailViewModel>()
     private var binding: FragmentGalleryWallpaperDetailBinding? = null
-    private val adapter by lazy {
+    private val paperDetailAdapter by lazy {
         GalleryWallPaperDetailAdapter()
     }
 
     companion object {
         const val TYPE_ARRAY_DATA_DETAIL = "TYPE_ARRAY_DATA_DETAIL"
 
-        internal fun newInstance(typeArray: TypeArray) = GalleryWallPaperDetailFragment().apply {
+        internal fun newInstance(typeArray: ArrayList<RowObject>) = GalleryWallPaperDetailFragment().apply {
             arguments = Bundle().apply {
-                putParcelable(TYPE_ARRAY_DATA_DETAIL, typeArray)
+                putParcelableArrayList(TYPE_ARRAY_DATA_DETAIL, typeArray)
             }
         }
     }
@@ -57,14 +57,16 @@ class GalleryWallPaperDetailFragment : BaseFragment() {
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
         }
-        initView()
         initData()
         initEvent()
         return binding?.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initView()
+    }
     private fun initEvent() {
-        adapter.apply {
+        paperDetailAdapter.apply {
             onClickGetImageUrl {
                 (activity as? BaseActivity)?.addFragment(PictureDetailFragment.newInstance(it), true, null)
             }
@@ -72,36 +74,38 @@ class GalleryWallPaperDetailFragment : BaseFragment() {
     }
 
     private fun initView() {
-        val layoutManager = GridLayoutManager(context, 2)
-        binding?.rcvWallPaperDetail?.also {
-            it.adapter = adapter
-            it.layoutManager = layoutManager
-            it.addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
+        binding?.rcvWallPaperDetail?.apply {
+            adapter = paperDetailAdapter
         }
 
         lifecycleScope.launchWhenCreated {
             launch {
                 viewModel.loadingState().collect {
-                    handleShowLoading(it)
+                    handleStateLoading(it)
                 }
             }
 
             launch {
                 viewModel.urlImage.collect {
                     if (it.size > 0) {
-                        adapter.submitList(it)
+                        Log.d("lasdndasdla", "initView: ")
+                        paperDetailAdapter.submitList(it)
                     }
                 }
             }
         }
     }
 
+    private fun handleStateLoading(stateLoading: Boolean) {
+        if (!stateLoading){
+            binding?.loadingView?.visibility = View.GONE
+        }
+    }
+
     private fun initData() {
         arguments?.apply {
-            getParcelable<TypeArray>(TYPE_ARRAY_DATA_DETAIL).apply {
-                this?.also {
-                    viewModel.setData(it.data_loai)
-                }
+            getParcelableArrayList<RowObject>(TYPE_ARRAY_DATA_DETAIL)?.let { dataDetail ->
+                viewModel.setData(dataDetail)
             }
         }
     }

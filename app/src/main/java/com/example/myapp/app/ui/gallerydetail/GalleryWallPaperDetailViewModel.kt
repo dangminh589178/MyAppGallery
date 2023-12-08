@@ -13,13 +13,13 @@ Crete by Minh at 6/03/2022
 @HiltViewModel
 class GalleryWallPaperDetailViewModel @Inject constructor() : BaseViewModel() {
 
+    companion object {
+        const val LIST_VISIBLE = 40
+    }
+
     var urlImage : MutableStateFlow<MutableList<RowObject>> = MutableStateFlow(mutableListOf())
 
     internal fun setData(rowObject: ArrayList<RowObject>) {
-        urlImage.value = rowObject
-        Log.d("setDataToStringsdf", rowObject.size.toString())
-//        rowObject.forEach {
-//            urlImage.value = it.row
-//        }
+        urlImage.value = rowObject.take(LIST_VISIBLE).toMutableList()
     }
 }

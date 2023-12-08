@@ -4,9 +4,12 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
 import com.example.myapp.app.ui.base.BaseDialogFragment
+import kotlin.math.log
 
 /**
 Crete by Minh at 2/01/2022
@@ -35,6 +38,29 @@ Crete by Minh at 2/01/2022
             setCanceledOnTouchOutside(false)
             setContentDialog(this)
             initListener(this)
+        }
+    }
+
+    override fun show(manager: FragmentManager, tag: String?) {
+        try {
+            if (!isShowing && !isAdded) {
+                isShowing = true
+                super.show(manager, tag)
+            }
+        } catch (
+            e: IllegalStateException
+        ){
+            Log.d("showError", "show error + ${e}: ")
+        }
+    }
+    override fun dismiss() {
+        try {
+            if (isShowing && isAdded) {
+                isShowing = false
+                super.dismiss()
+            }
+        } catch (e: IllegalStateException) {
+            Log.d("showError", "show error + ${e}: ")
         }
     }
 

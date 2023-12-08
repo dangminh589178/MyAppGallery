@@ -2,23 +2,17 @@
 
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-
-        <variable
-            name="data"
-            type="com.example.myapp.app.data.local.model.RowObject" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="350dp">
+        android:layout_marginBottom="@dimen/margin_8dp"
+        android:layout_height="wrap_content">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imvDetail"
-            loadImageUrl="@{data.row.url}"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:shapeAppearanceOverlay="@style/circleImageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

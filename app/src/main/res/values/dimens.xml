@@ -67,6 +67,7 @@
     <dimen name="height_169dp">169dp</dimen>
     <dimen name="height_235dp">235dp</dimen>
     <dimen name="height_240dp">240dp</dimen>
+    <dimen name="height_300dp">300dp</dimen>
     <dimen name="height_648dp">648dp</dimen>
     <dimen name="height_309dp">309dp</dimen>
 

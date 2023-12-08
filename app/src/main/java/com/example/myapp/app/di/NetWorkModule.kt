@@ -8,11 +8,11 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.Protocol
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
 import javax.inject.Singleton
-
+import java.util.Collections
 
 /**
 Crete by Minh at 20/02/2022
@@ -26,8 +26,13 @@ class NetWorkModule {
     @Singleton
     fun provideHttpClient(): OkHttpClient {
         return OkHttpClient.Builder().also { http ->
+            http.addInterceptor(httpInterceptor())
             http.protocols(Collections.singletonList(Protocol.HTTP_1_1))
         }.build()
+    }
+
+    private fun httpInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
+        this.level = HttpLoggingInterceptor.Level.BODY
     }
 
     @Provides

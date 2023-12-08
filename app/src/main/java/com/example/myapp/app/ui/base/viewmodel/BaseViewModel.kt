@@ -1,5 +1,6 @@
 package com.example.myapp.app.ui.base.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.myapp.app.data.remote.exeption.BaseError
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +18,7 @@ abstract class BaseViewModel : ViewModel() {
 
     internal fun handleLoading(isLoading: Boolean) {
         loadingState.value = isLoading
-    } internal
+    }
 
     fun handleError(error : BaseError?) {
         errorState.value = error

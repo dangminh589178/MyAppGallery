@@ -18,6 +18,5 @@ class PictureDetailViewModel @Inject constructor() : BaseViewModel() {
 
     internal fun setData(data: RowObject) {
         imageObject.value = data.row
-        Log.d("typetostring", imageObject.value.url)
     }
 }

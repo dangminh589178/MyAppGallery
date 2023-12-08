@@ -56,7 +56,6 @@ class GalleryWallPaperFragment : BaseFragment() {
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
 
-
         }
         Log.d("kasdjkssssds", "onCreateView: ")
         initData()
@@ -69,53 +68,6 @@ class GalleryWallPaperFragment : BaseFragment() {
         Log.d("kasdjkssssds", "onViewCreated: ")
 
         initView()
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.d("kasdjkssssds", "onAttach: ")
-
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        Log.d("kasdjkssssds", "onDetach: ")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d("kasdjkssssds", "onResume: ")
-    }
-
-    override fun onPause() {
-        super.onPause()
-
-        Log.d("kasdjkssssds", "onPause: ")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d("kasdjkssssds", "onStop: ")
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        Log.d("kasdjkssssds", "onSaveInstanceState: ")
-    }
-
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
-        Log.d("kasdjkssssds", "onViewStateRestored: ")
-    }
-    override fun onStart() {
-        super.onStart()
-
-        Log.d("kasdjkssssds", "onStart: ")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("kasdjkssssds", "onDestroy: ")
     }
 
     override fun onDestroyView() {
@@ -159,13 +111,19 @@ class GalleryWallPaperFragment : BaseFragment() {
 
     private fun initData() {
         adapter.apply {
-            itemClick = {
-                    (activity as? BaseActivity)?.addFragment(GalleryWallPaperDetailFragment.newInstance(it), true, null)
-
+            itemClickSeeMore = { listImage ->
+                listImage?.let { data ->
+                    (activity as? BaseActivity)?.addFragment(
+                        GalleryWallPaperDetailFragment.newInstance(
+                            data
+                        ), true, null
+                    )
+                }
+            }
+            itemClickImage = { data ->
+                Log.d("dataOfRowObject :", data.row.title)
             }
         }
         viewModel.getDataResponse()
     }
-
-
 }

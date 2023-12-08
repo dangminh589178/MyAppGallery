@@ -124,10 +124,6 @@ class WallPaperBottomSheetFragment : BaseBottomSheetDialog() {
                             wallpaperManager.setBitmap(resource, null, true, WallpaperManager.FLAG_SYSTEM )
                             Toast.makeText(context, "Set succeed wallpaper", Toast.LENGTH_SHORT)
                                 .show()
-
-
-
-
                         } catch (ex: IOException) {
                             ex.printStackTrace()
                         }
@@ -137,7 +133,6 @@ class WallPaperBottomSheetFragment : BaseBottomSheetDialog() {
 
                     }
                 })
-
         }
     }
 }

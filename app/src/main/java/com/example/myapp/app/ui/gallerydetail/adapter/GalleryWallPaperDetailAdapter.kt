@@ -1,8 +1,11 @@
-package com.example.myapp.app.ui.gallerydetail
+package com.example.myapp.app.ui.gallerydetail.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.bumptech.glide.request.RequestOptions
 import com.example.myapp.app.data.local.model.RowObject
+import com.example.myapp.app.extensions.GlideExtension
 import com.example.myapp.app.ui.base.BaseListAdapter
 import com.example.myapp.databinding.ItemGalleryWallpaperDetailBinding
 
@@ -28,12 +31,13 @@ class GalleryWallPaperDetailAdapter : BaseListAdapter<RowObject>() {
 
         init {
             binding.root.setOnClickListener {
-                onClick.invoke(getItem(adapterPosition))
+                onClick.invoke(getItem(absoluteAdapterPosition))
             }
         }
 
         override fun bind(data: RowObject) {
-            binding.data = data
+            GlideExtension.withLoad(binding.root.context, data.row.url)
+                .into(binding.imvDetail)
         }
     }
 

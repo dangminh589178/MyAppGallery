@@ -40,11 +40,6 @@ class PictureDetailFragment : BaseFragment() {
     private val viewModel by viewModels<PictureDetailViewModel>()
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d("ndsjasjbilj", "onCreate: ")
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -62,7 +57,6 @@ class PictureDetailFragment : BaseFragment() {
         }
         initData()
         initEvent()
-        Log.d("PictureDetailFragmentasdasdk", "onCreateView: ")
         return binding?.root
     }
 
@@ -83,7 +77,6 @@ class PictureDetailFragment : BaseFragment() {
 
             launch {
                 viewModel.imageObject.collect {
-                    Log.d("asdsadasdaaaaa", it.title)
                 }
             }
         }
@@ -93,10 +86,6 @@ class PictureDetailFragment : BaseFragment() {
         arguments?.getParcelable<RowObject>(IMAGE)?.apply {
             this.also { data ->
                 viewModel.setData(data)
-
-//                WallPaperBottomSheetFragment.newInstance(data.row.url)
-
-                Log.d("datafrompicturedetail", data.row.url)
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.example.myapp.app.ui.base
 
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentController
@@ -24,7 +25,6 @@ abstract class BaseFragment : com.example.myapp.app.ui.base.FragmentController()
 
     internal fun showLoading() {
         (activity as? BaseActivity)?.showLoading()
-
     }
 
     internal fun handleShowLoading(isStateShow: Boolean) {
