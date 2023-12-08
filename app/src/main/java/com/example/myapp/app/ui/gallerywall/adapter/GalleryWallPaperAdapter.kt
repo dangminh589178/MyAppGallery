@@ -1,19 +1,14 @@
 package com.example.myapp.app.ui.gallerywall.adapter
 
-import android.icu.text.CaseMap.Title
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL
 import com.example.myapp.app.data.local.model.TypeArray
 import com.example.myapp.app.extensions.ViewpagerExtension.addCarouselEffect
 import com.example.myapp.app.ui.base.BaseListAdapter
 import com.example.myapp.app.ui.gallerywall.model.CategoryViewType
 import com.example.myapp.app.ui.gallerywall.model.GalleryCategoryItem
-import com.example.myapp.databinding.ItemGalleryBinding
 import com.example.myapp.databinding.ItemGalleryCategoryBinding
-import com.example.myapp.databinding.ViewpagerCategoryDetailBinding
 import com.example.myapp.databinding.ViewpagerCategoryItemBinding
 
 /**
