@@ -1,11 +1,15 @@
 package com.example.myapp.app.extensions
 
 import android.util.Log
+import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.example.myapp.R
 import kotlin.math.abs
 
 object ViewpagerExtension {
+
+    private const val ONE = 1
+    private const val ALPHA = 0.30f
 
     fun ViewPager2.addCarouselEffect() {
         clipToPadding = false
@@ -17,7 +21,6 @@ object ViewpagerExtension {
         setPageTransformer { page, position ->
             val offset = position * -(2 * offsetPx + pageMarginPx)
             page.translationX = offset
-            Log.d("addCaraouselEffect", " position: $position addCarouselEffect: ${1- (0.25f * abs(position))} ")
             page.scaleY = 1- (0.30f * abs(position))
 
         }

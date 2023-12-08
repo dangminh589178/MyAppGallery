@@ -120,12 +120,10 @@ class GalleryWallPaperFragment : BaseFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.d("kasdjkssssds", "onDestroyView: ")
         binding = null
     }
 
     private fun initLaunch() {
-        Log.d("lpsapdasd", "initLaunch: ")
         lifecycleScope.launchWhenCreated {
             launch {
                 viewModel.loadingState().collect {
@@ -135,7 +133,6 @@ class GalleryWallPaperFragment : BaseFragment() {
             launch {
                 viewModel.listResponseImage.collect {
                     if (it.size > 0) {
-                        Log.d("sizsadas", it.size.toString())
                         adapter.submitList(viewModel.listResponseImage.value)
                     } else {
                         Log.d("zỏtosngdsdf", "adsad: ")
